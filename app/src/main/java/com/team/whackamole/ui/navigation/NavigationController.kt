@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.team.whackamole.ui.Route
+import com.team.whackamole.ui.screens.GameScreen
 import com.team.whackamole.ui.screens.MenuScreen
 import com.team.whackamole.ui.screens.SplashScreen
 
@@ -17,6 +18,9 @@ fun NavigationController() {
         }
         composable(route = Route.MenuScreenRoute.path) {
             MenuScreen(navController = navController)
+        }
+        composable(route = Route.GameScreen.path) {
+            GameScreen(navController = navController)
         }
     }
 }

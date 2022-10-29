@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.team.whackamole.R
+import com.team.whackamole.ui.Route
 
 
 @Composable
@@ -24,12 +25,12 @@ fun MenuScreen(navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
             .paint(
-                painterResource(id = R.drawable.ic_launcher_background),
+                painterResource(id = R.drawable.background_forest),
                 contentScale = ContentScale.Crop
             )
     ) {
         Button(onClick = {
-            //Navigation on game screen
+            navController.navigate(Route.GameScreen.path)
         }, modifier = Modifier.padding(30.dp).fillMaxWidth()
         ) {
             Text("Начать игру", fontSize = 25.sp)

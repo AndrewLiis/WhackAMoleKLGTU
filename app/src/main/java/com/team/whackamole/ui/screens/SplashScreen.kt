@@ -28,7 +28,7 @@ fun SplashScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .paint(painterResource(id = R.drawable.ic_launcher_background), contentScale = ContentScale.Crop)
+            .paint(painterResource(id = R.drawable.background_forest), contentScale = ContentScale.Crop)
 
     ) {
         Button(onClick = {
