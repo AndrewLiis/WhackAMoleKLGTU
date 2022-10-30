@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.google.accompanist.flowlayout.FlowColumn
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
@@ -26,9 +27,48 @@ import com.google.accompanist.flowlayout.SizeMode
 import com.team.whackamole.R
 import org.intellij.lang.annotations.JdkConstants.FlowLayoutAlignment
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun GameScreen(navController: NavController) {
-    NestedScrollScreen()
+    val list = (1..12).map { it.toString() }
+
+    Box {
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text(text = "Счет")
+            Text(text = "Таймер")
+            Text(text = "Профиль")
+        }
+
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            LazyVerticalGrid(
+                cells = GridCells.Fixed(3),
+                content = {
+                    items(list.size) { index ->
+                        val mole: Painter = painterResource(id = R.drawable.hole_with_mole)
+                        val hole: Painter = painterResource(id = R.drawable.hole)
+
+                        Box(
+                            contentAlignment = Alignment.BottomCenter,
+                            modifier = Modifier
+                                .padding(4.dp)
+                                .fillMaxWidth()
+                                .aspectRatio(1f),
+                        ) {
+                            if (index == 5) {
+                                Image(painter = mole , contentDescription = "")
+                            } else {
+                                Image(painter = hole, contentDescription = "")
+                            }
+                        }
+                    }
+                }
+            )
+        }
+    }
 }
 
 
@@ -66,18 +106,17 @@ fun NestedScrollScreen() {
             Text("Whishlisted Books", style = MaterialTheme.typography.h4)
         }
         // Нижний вертикальный скролл
-        items(wishlisted.windowed(3,3,false)) { sublist ->
-            //Непонятно лагает ли скролл из-за Arrangement
-            Row( horizontalArrangement = Arrangement.SpaceAround,
-                modifier = Modifier.fillMaxSize()
+        items(wishlisted.windowed(3, 3, true)) { sublist ->
+            Row(
+                modifier = Modifier.fillMaxSize(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
             ) {
                 sublist.forEach { item ->
                     Text(
                         item, modifier = Modifier
                             .height(120.dp)
-                            .background(Color.Blue)
-                            .fillParentMaxWidth(.30f)
-                            .clickable(onClick = { Log.d("BTN", item) })
+                            .background(Color.Yellow)
+                            .fillParentMaxWidth(.25f)
                     )
                 }
             }
