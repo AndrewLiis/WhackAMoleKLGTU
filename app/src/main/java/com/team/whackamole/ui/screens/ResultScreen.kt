@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.team.whackamole.R
+import com.team.whackamole.resources.Constants
 import com.team.whackamole.ui.Route
 
 @Composable
@@ -31,14 +32,14 @@ fun ResultScreen(navController: NavController, score: String?) {
             )
     ) {
         Text(
-            text = "Конец игры!",
+            text = Constants.gameOver,
             textAlign = TextAlign.Center,
             fontSize = 30.sp,
             color = Color.White,
             modifier = Modifier.fillMaxWidth()
         )
         Text(
-            text = "Вы набрали $score очков",
+            text = "${Constants.youScored} $score очков",
             textAlign = TextAlign.Center,
             fontSize = 30.sp,
             color = Color.White,
@@ -53,7 +54,7 @@ fun ResultScreen(navController: NavController, score: String?) {
             modifier = Modifier.padding(15.dp)
         ) {
             Text(
-                text = "Назад в меню",
+                text = Constants.backToMenu,
                 fontSize = 30.sp,
                 color = Color.White,
             )

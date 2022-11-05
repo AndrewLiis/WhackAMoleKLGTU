@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.team.whackamole.R
+import com.team.whackamole.resources.Constants
 import com.team.whackamole.ui.Route
 
 @Composable
@@ -41,7 +42,7 @@ fun SplashScreen(navController: NavController) {
             }, modifier = Modifier
                 .offset(0.dp, 0.dp)
         ) {
-            Text("Старт", fontSize = 25.sp)
+            Text(Constants.start, fontSize = 25.sp)
         }
     }
 }

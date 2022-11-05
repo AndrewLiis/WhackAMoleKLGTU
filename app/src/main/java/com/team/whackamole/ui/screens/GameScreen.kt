@@ -21,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.team.whackamole.R
+import com.team.whackamole.resources.Constants
 import com.team.whackamole.ui.Route
 import com.team.whackamole.ui.viewmodels.GameViewModel
 import org.koin.androidx.compose.getViewModel
@@ -76,7 +77,7 @@ fun GameScreen(navController: NavController) {
         )
 
         Text(
-            "Меню", modifier = Modifier
+            text = Constants.menu, modifier = Modifier
                 .align(Alignment.TopEnd)
                 .padding(10.dp)
         )

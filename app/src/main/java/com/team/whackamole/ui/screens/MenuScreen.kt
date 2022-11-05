@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.team.whackamole.R
+import com.team.whackamole.resources.Constants
 import com.team.whackamole.ui.Route
 
 
@@ -39,7 +40,7 @@ fun MenuScreen(navController: NavController) {
                 .padding(30.dp)
                 .fillMaxWidth()
         ) {
-            Text("Начать игру", fontSize = 25.sp)
+            Text(Constants.startGame, fontSize = 25.sp)
         }
         Button(
             onClick = {
@@ -48,7 +49,7 @@ fun MenuScreen(navController: NavController) {
                 .padding(30.dp, 15.dp)
                 .fillMaxWidth()
         ) {
-            Text("Магазин", fontSize = 25.sp)
+            Text(Constants.shop, fontSize = 25.sp)
         }
         Button(
             onClick = {
@@ -57,7 +58,7 @@ fun MenuScreen(navController: NavController) {
                 .padding(30.dp)
                 .fillMaxWidth()
         ) {
-            Text("Настройки", fontSize = 25.sp)
+            Text(Constants.settings, fontSize = 25.sp)
         }
     }
 }
