@@ -45,7 +45,11 @@ fun ResultScreen(navController: NavController, score: String?) {
             modifier = Modifier.fillMaxWidth()
         )
         Button(
-            onClick = { navController.navigate(Route.MenuScreenRoute.path) },
+            onClick = { navController.navigate(Route.MenuScreenRoute.path){
+                popUpTo(Route.ResultScreen.path) {
+                    inclusive = true
+                }
+            } },
             modifier = Modifier.padding(15.dp)
         ) {
             Text(

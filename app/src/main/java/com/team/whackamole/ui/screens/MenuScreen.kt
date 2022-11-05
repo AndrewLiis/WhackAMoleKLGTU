@@ -30,7 +30,11 @@ fun MenuScreen(navController: NavController) {
     ) {
         Button(
             onClick = {
-                navController.navigate(Route.GameScreen.path)
+                navController.navigate(Route.GameScreen.path) {
+                    popUpTo(Route.MenuScreenRoute.path) {
+                        inclusive = true
+                    }
+                }
             }, modifier = Modifier
                 .padding(30.dp)
                 .fillMaxWidth()

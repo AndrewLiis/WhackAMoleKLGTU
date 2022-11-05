@@ -41,7 +41,11 @@ fun GameScreen(navController: NavController) {
 
     if (isTimerFinish.value == true) {
         LaunchedEffect(true) {
-            navController.navigate(Route.ResultScreen.withArgs(gameViewModel.userScore.value.toString()))
+            navController.navigate(Route.ResultScreen.withArgs(gameViewModel.userScore.value.toString())){
+                popUpTo(Route.GameScreen.path) {
+                    inclusive = true
+                }
+            }
         }
         gameViewModel.isTimerFinish.value = false
     }
