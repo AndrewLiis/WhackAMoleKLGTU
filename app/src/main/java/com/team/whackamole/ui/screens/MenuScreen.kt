@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -19,7 +18,7 @@ import com.team.whackamole.ui.Route
 
 @Composable
 fun MenuScreen(navController: NavController) {
-    Column (
+    Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -29,21 +28,30 @@ fun MenuScreen(navController: NavController) {
                 contentScale = ContentScale.Crop
             )
     ) {
-        Button(onClick = {
-            navController.navigate(Route.GameScreen.path)
-        }, modifier = Modifier.padding(30.dp).fillMaxWidth()
+        Button(
+            onClick = {
+                navController.navigate(Route.GameScreen.path)
+            }, modifier = Modifier
+                .padding(30.dp)
+                .fillMaxWidth()
         ) {
             Text("Начать игру", fontSize = 25.sp)
         }
-        Button(onClick = {
-            //Navigation on store screen
-        }, modifier = Modifier.padding(30.dp, 15.dp).fillMaxWidth()
+        Button(
+            onClick = {
+                //Navigation on store screen
+            }, modifier = Modifier
+                .padding(30.dp, 15.dp)
+                .fillMaxWidth()
         ) {
             Text("Магазин", fontSize = 25.sp)
         }
-        Button(onClick = {
-            //Navigation on settings screen
-        }, modifier = Modifier.padding(30.dp).fillMaxWidth()
+        Button(
+            onClick = {
+                //Navigation on settings screen
+            }, modifier = Modifier
+                .padding(30.dp)
+                .fillMaxWidth()
         ) {
             Text("Настройки", fontSize = 25.sp)
         }

@@ -1,22 +1,22 @@
 package com.team.whackamole.ui.viewmodels
 
 import android.os.CountDownTimer
-import android.util.Log
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class GameViewModel(
 
-): ViewModel() {
+) : ViewModel() {
 
-    val timerValue = MutableLiveData<String>()
+    val timerValue = mutableStateOf("0")
     val molePosition = MutableLiveData<Int>()
     val isMoleVisible = MutableLiveData<Boolean>()
-    val userScore = MutableLiveData<Int>()
+    val userScore = mutableStateOf(0)
+    var isTimerFinish = MutableLiveData<Boolean>()
 
     init {
         startTimer()
@@ -33,7 +33,7 @@ class GameViewModel(
             }
 
             override fun onFinish() {
-                timerValue.value = EMPTY_STRING
+                isTimerFinish.value = true
             }
         }.start()
     }
@@ -62,7 +62,7 @@ class GameViewModel(
     companion object {
         const val SPACE = " "
         const val SEC = "сек"
-        const val ONE_MINUTE: Long = 60000
+        const val ONE_MINUTE: Long = 5000
         const val ONE_SECOND: Long = 1000
         const val EMPTY_STRING = ""
     }
