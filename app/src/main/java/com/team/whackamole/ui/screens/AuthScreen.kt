@@ -39,7 +39,9 @@ fun AuthScreen(navController: NavController) {
     ) {
         Card(
             shape = RoundedCornerShape(16.dp),
-            modifier = Modifier.fillMaxWidth().padding(16.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
         ) {
             Column(
                 verticalArrangement = Arrangement.Center,
@@ -50,9 +52,10 @@ fun AuthScreen(navController: NavController) {
                 var password by remember { mutableStateOf("") }
                 var passwordVisibility: Boolean by remember { mutableStateOf(false) }
 
-                Spacer(modifier = Modifier
-                    .height(Constants.vertSpacerHeight.dp)
-                    .fillMaxWidth()
+                Spacer(
+                    modifier = Modifier
+                        .height(Constants.vertSpacerHeight.dp)
+                        .fillMaxWidth()
                 )
 
                 Text(
@@ -74,9 +77,11 @@ fun AuthScreen(navController: NavController) {
                         .padding(horizontal = 20.dp)
                 )
 
-                Spacer(modifier = Modifier
-                    .height(Constants.vertSpacerHeight.dp)
-                    .fillMaxWidth())
+                Spacer(
+                    modifier = Modifier
+                        .height(Constants.vertSpacerHeight.dp)
+                        .fillMaxWidth()
+                )
 
                 OutlinedTextField(
                     value = password,
@@ -91,7 +96,8 @@ fun AuthScreen(navController: NavController) {
                         val image = if (passwordVisibility)
                             Icons.Filled.Visibility
                         else Icons.Filled.VisibilityOff
-                        val description = if (passwordVisibility) "Hide password" else "Show password"
+                        val description =
+                            if (passwordVisibility) "Hide password" else "Show password"
                         IconButton(onClick = {
                             passwordVisibility = !passwordVisibility
                         }) {
@@ -103,18 +109,20 @@ fun AuthScreen(navController: NavController) {
                         .padding(horizontal = 20.dp)
                 )
 
-                Spacer(modifier = Modifier
-                    .height(Constants.vertSpacerHeight.dp)
-                    .fillMaxWidth()
+                Spacer(
+                    modifier = Modifier
+                        .height(Constants.vertSpacerHeight.dp)
+                        .fillMaxWidth()
                 )
 
                 Button(onClick = { navController.navigate(Route.RegistrationScreen.path) }) {
                     Text(text = "Регистрация", fontSize = Constants.mediumFontSize.sp)
                 }
 
-                Spacer(modifier = Modifier
-                    .height(Constants.vertSpacerHeight.dp)
-                    .fillMaxWidth()
+                Spacer(
+                    modifier = Modifier
+                        .height(Constants.vertSpacerHeight.dp)
+                        .fillMaxWidth()
                 )
             }
         }

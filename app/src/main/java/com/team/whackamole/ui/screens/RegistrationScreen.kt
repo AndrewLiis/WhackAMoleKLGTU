@@ -39,7 +39,9 @@ fun RegistrationScreen(navController: NavController) {
     ) {
         Card(
             shape = RoundedCornerShape(16.dp),
-            modifier = Modifier.fillMaxWidth().padding(16.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
         ) {
             Column(
                 verticalArrangement = Arrangement.Center,
@@ -49,9 +51,10 @@ fun RegistrationScreen(navController: NavController) {
                 var password by remember { mutableStateOf("") }
                 var passwordVisibility: Boolean by remember { mutableStateOf(false) }
 
-                Spacer(modifier = Modifier
-                    .height(Constants.vertSpacerHeight.dp)
-                    .fillMaxWidth()
+                Spacer(
+                    modifier = Modifier
+                        .height(Constants.vertSpacerHeight.dp)
+                        .fillMaxWidth()
                 )
 
                 Text(
@@ -73,9 +76,10 @@ fun RegistrationScreen(navController: NavController) {
                         .padding(horizontal = 20.dp)
                 )
 
-                Spacer(modifier = Modifier
-                    .height(Constants.vertSpacerHeight.dp)
-                    .fillMaxWidth()
+                Spacer(
+                    modifier = Modifier
+                        .height(Constants.vertSpacerHeight.dp)
+                        .fillMaxWidth()
                 )
 
                 OutlinedTextField(
@@ -91,7 +95,8 @@ fun RegistrationScreen(navController: NavController) {
                         val image = if (passwordVisibility)
                             Icons.Filled.Visibility
                         else Icons.Filled.VisibilityOff
-                        val description = if (passwordVisibility) "Hide password" else "Show password"
+                        val description =
+                            if (passwordVisibility) "Hide password" else "Show password"
                         IconButton(onClick = {
                             passwordVisibility = !passwordVisibility
                         }) {
@@ -103,27 +108,30 @@ fun RegistrationScreen(navController: NavController) {
                         .padding(horizontal = 20.dp)
                 )
 
-                Spacer(modifier = Modifier
-                    .height(Constants.vertSpacerHeight.dp)
-                    .fillMaxWidth()
+                Spacer(
+                    modifier = Modifier
+                        .height(Constants.vertSpacerHeight.dp)
+                        .fillMaxWidth()
                 )
 
                 Button(onClick = { navController.navigate(Route.MenuScreenRoute.path) }) {
                     Text(text = "Зарегистрироваться", fontSize = Constants.mediumFontSize.sp)
                 }
 
-                Spacer(modifier = Modifier
-                    .height(Constants.vertSpacerHeight.dp)
-                    .fillMaxWidth()
+                Spacer(
+                    modifier = Modifier
+                        .height(Constants.vertSpacerHeight.dp)
+                        .fillMaxWidth()
                 )
 
                 Button(onClick = { navController.popBackStack() }) {
                     Text(text = "Назад", fontSize = Constants.mediumFontSize.sp)
                 }
 
-                Spacer(modifier = Modifier
-                    .height(Constants.vertSpacerHeight.dp)
-                    .fillMaxWidth()
+                Spacer(
+                    modifier = Modifier
+                        .height(Constants.vertSpacerHeight.dp)
+                        .fillMaxWidth()
                 )
             }
         }

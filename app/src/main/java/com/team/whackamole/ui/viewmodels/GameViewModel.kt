@@ -48,7 +48,7 @@ class GameViewModel(
     }
 
     fun upScore() {
-        userScore.value = userScore.value?.plus(1)
+        userScore.value = userScore.value.plus(1)
     }
 
     fun hideMole() {
