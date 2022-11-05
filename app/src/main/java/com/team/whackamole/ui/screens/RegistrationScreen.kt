@@ -1,6 +1,7 @@
 package com.team.whackamole.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -36,77 +37,95 @@ fun RegistrationScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        var login by remember { mutableStateOf("") }
-        var password by remember { mutableStateOf("") }
-        var passwordVisibility: Boolean by remember { mutableStateOf(false) }
+        Card(
+            shape = RoundedCornerShape(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(16.dp)
+        ) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                var login by remember { mutableStateOf("") }
+                var password by remember { mutableStateOf("") }
+                var passwordVisibility: Boolean by remember { mutableStateOf(false) }
 
-        Text(
-            text = Constants.registration,
-            fontSize = Constants.bigFontSize.sp,
-            color = Color.White
-        )
+                Spacer(modifier = Modifier
+                    .height(Constants.vertSpacerHeight.dp)
+                    .fillMaxWidth()
+                )
 
-        OutlinedTextField(
-            value = login,
-            singleLine = true,
-            maxLines = 1,
-            textStyle = TextStyle(fontSize = Constants.mediumFontSize.sp),
-            onValueChange = { login = it },
-            label = { Text(text = Constants.login) },
-            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp)
-        )
+                Text(
+                    text = Constants.registration,
+                    fontSize = Constants.bigFontSize.sp,
+                    color = Color.Black
+                )
 
-        Spacer(modifier = Modifier
-            .height(Constants.vertSpacerHeight.dp)
-            .fillMaxWidth()
-        )
+                OutlinedTextField(
+                    value = login,
+                    singleLine = true,
+                    maxLines = 1,
+                    textStyle = TextStyle(fontSize = Constants.mediumFontSize.sp),
+                    onValueChange = { login = it },
+                    label = { Text(text = Constants.login) },
+                    keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Email),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp)
+                )
 
-        OutlinedTextField(
-            value = password,
-            singleLine = true,
-            maxLines = 1,
-            textStyle = TextStyle(fontSize = Constants.mediumFontSize.sp),
-            onValueChange = { password = it },
-            label = { Text(text = Constants.password) },
-            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
-            visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
-            trailingIcon = {
-                val image = if (passwordVisibility)
-                    Icons.Filled.Visibility
-                else Icons.Filled.VisibilityOff
-                val description = if (passwordVisibility) "Hide password" else "Show password"
-                IconButton(onClick = {
-                    passwordVisibility = !passwordVisibility
-                }) {
-                    Icon(imageVector = image, description)
+                Spacer(modifier = Modifier
+                    .height(Constants.vertSpacerHeight.dp)
+                    .fillMaxWidth()
+                )
+
+                OutlinedTextField(
+                    value = password,
+                    singleLine = true,
+                    maxLines = 1,
+                    textStyle = TextStyle(fontSize = Constants.mediumFontSize.sp),
+                    onValueChange = { password = it },
+                    label = { Text(text = Constants.password) },
+                    keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Password),
+                    visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
+                    trailingIcon = {
+                        val image = if (passwordVisibility)
+                            Icons.Filled.Visibility
+                        else Icons.Filled.VisibilityOff
+                        val description = if (passwordVisibility) "Hide password" else "Show password"
+                        IconButton(onClick = {
+                            passwordVisibility = !passwordVisibility
+                        }) {
+                            Icon(imageVector = image, description)
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp)
+                )
+
+                Spacer(modifier = Modifier
+                    .height(Constants.vertSpacerHeight.dp)
+                    .fillMaxWidth()
+                )
+
+                Button(onClick = { navController.navigate(Route.MenuScreenRoute.path) }) {
+                    Text(text = "Зарегистрироваться", fontSize = Constants.mediumFontSize.sp)
                 }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp)
-        )
 
-        Spacer(modifier = Modifier
-            .height(Constants.vertSpacerHeight.dp)
-            .fillMaxWidth()
-        )
+                Spacer(modifier = Modifier
+                    .height(Constants.vertSpacerHeight.dp)
+                    .fillMaxWidth()
+                )
 
-        Button(onClick = { navController.navigate(Route.MenuScreenRoute.path) }) {
-            Text(text = "Зарегистрироваться", fontSize = Constants.mediumFontSize.sp)
+                Button(onClick = { navController.popBackStack() }) {
+                    Text(text = "Назад", fontSize = Constants.mediumFontSize.sp)
+                }
+
+                Spacer(modifier = Modifier
+                    .height(Constants.vertSpacerHeight.dp)
+                    .fillMaxWidth()
+                )
+            }
         }
-
-        Spacer(modifier = Modifier
-            .height(Constants.vertSpacerHeight.dp)
-            .fillMaxWidth()
-        )
-        
-        Button(onClick = { navController.popBackStack() }) {
-            Text(text = "У меня есть аккаунт. Войти", fontSize = Constants.mediumFontSize.sp)
-        }
-
     }
-
 }
