@@ -9,4 +9,7 @@ object Constants {
     const val shop = "Магазин"
     const val settings = "Настройки"
     const val menu = "Меню"
+    const val mainFontSize = 30
+    const val buttonFontSize = 20
+    const val vertSpacerHeight = 16
 }

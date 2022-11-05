@@ -7,15 +7,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.team.whackamole.ui.Route
-import com.team.whackamole.ui.screens.GameScreen
-import com.team.whackamole.ui.screens.MenuScreen
-import com.team.whackamole.ui.screens.ResultScreen
-import com.team.whackamole.ui.screens.SplashScreen
+import com.team.whackamole.ui.screens.*
 
 @Composable
 fun NavigationController() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Route.SplashScreenRoute.path) {
+    NavHost(navController = navController, startDestination = Route.AuthScreen.path) {
         composable(route = Route.SplashScreenRoute.path) {
             SplashScreen(navController = navController)
         }
@@ -36,6 +33,9 @@ fun NavigationController() {
             )
         ) { entry ->
             ResultScreen(navController = navController, score = entry.arguments?.getString("score"))
+        }
+        composable(route = Route.AuthScreen.path) {
+            AuthScreen(navController = navController)
         }
     }
 }
