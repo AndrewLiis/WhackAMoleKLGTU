@@ -37,5 +37,8 @@ fun NavigationController() {
         composable(route = Route.AuthScreen.path) {
             AuthScreen(navController = navController)
         }
+        composable(route = Route.RegistrationScreen.path) {
+            RegistrationScreen(navController = navController)
+        }
     }
 }

@@ -7,6 +7,7 @@ sealed class Route(val path: String) {
     object GameScreen : Route("game_screen_route/")
     object ResultScreen : Route("result_screen_route/")
     object AuthScreen : Route("auth_screen_route/")
+    object RegistrationScreen : Route("registration_screen_route/")
 
     fun withArgs(vararg args: String): String {
         return buildString {
