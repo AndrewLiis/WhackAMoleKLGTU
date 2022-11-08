@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "WhackAMole"
 include ':app'
+include ':data'
+include ':domain'
