@@ -1,4 +1,7 @@
 package com.team.domain.repository
 
-class AuthRepository {
+interface AuthRepository {
+    fun signIn()
+
+    fun signUp()
 }
